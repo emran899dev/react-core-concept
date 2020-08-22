@@ -16,8 +16,12 @@ function App() {
 }
 
 function Person() {
+ const personStyle = {
+    border: '2px solid yellow',
+    margin: '5px'
+  }
   return (
-    <div style={{border:'2px solid red',margin:'5px'}}>
+    <div style={personStyle}>
       <h1>Name: Mushfiqur Rahim</h1>
       <h3>I am a student</h3>
     </div>
