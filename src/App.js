@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
@@ -29,6 +29,7 @@ function App() {
   return (
     <header className="App-header">
       <h1>I am a React Person</h1>
+      <Users></Users>
       <Counter></Counter>
       <ul>
         {
@@ -111,14 +112,38 @@ function Friends(props) {
 
 function Counter() {
   const [count, setCount] = useState(0)
-  const handelIncrease = () => setCount(count + 1) 
-  const handelDecrease = () => setCount(count - 1) 
+  const handelIncrease = () => setCount(count + 1)
+  const handelDecrease = () => setCount(count - 1)
   return (
     <div>
       <h2>Count: {count} </h2>
       <button onClick={() => setCount(count + 1)}>Increase</button>
       <button onClick={() => setCount(count - 1)}>Decrease</button>
     </div>
+  )
+}
+
+function Users() {
+  const [users, setUsers] = useState([])
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(res => res.json())
+      .then(data => setUsers(data))
+  }, [])
+  return (
+    <div>
+      <h2>Dynamic users: {users.length}</h2>
+     
+        <ol>
+        {
+           users.map(user => <li>{user.name}</li>)
+          }
+        </ol>
+     
+    </div>
+
+
   )
 }
 
