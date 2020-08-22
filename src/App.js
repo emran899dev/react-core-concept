@@ -2,26 +2,50 @@ import React from 'react';
 import './App.css';
 
 function App() {
-  const personName = ['Rahim', 'Karim', 'Jabbar']
-  const cityName = ['Dhaka', 'Khulna']
+  const personName = ['Rahim', 'Karim', 'Jobbar']
 
-  const personAddress = {
-    city1: cityName[0],
-    city2: cityName[1]
-  }
+  const personAddress = [
+    {city: 'Dhaka'},
+    {city: 'khulna'}
+  ]
 
   const products = [
 
     { name: 'Photoshop', price: '$99.9' },
-    { name: 'Illustrator', price: '$55' }
+    { name: 'Illustrator', price: '$55' },
+    { name: 'PDF Reader', price: '$59' },
+    { name: 'Premiere EL', price: '$590' }
 
   ]
+
+  const friendList = [
+    {name: 'Tushar',roll: 328435},
+    {name: 'Emran Nazir',roll: 328435},
+    {name: 'Abdullha ',roll: 328435},
+    {name: 'Sohidul islam',roll: 328435},
+    {name: 'shanto shek',roll: 328435}
+  ]
+
   return (
     <header className="App-header">
-      <Product product={products[0]}></Product>
-      <Product product={products[1]}></Product>
-      <Person name={personName[0]} address={personAddress.city1}></Person>
-      <Person name={personName[1]} address={personAddress.city2}></Person>
+      <h1>I am a React Person</h1>
+      <ul>
+        {
+          personName.map(pName => <li>{pName}</li>)
+          
+        }
+        {
+          products.map(product => <li>{product.name}</li>)
+        }
+      </ul>
+      {
+        products.map(pd => <Product product={pd}></Product>)
+      }
+      <Person name={personName[0]} address={personAddress[0].city}></Person>
+      <Person name={personName[1]} address={personAddress[1].city}></Person>
+      {
+        friendList.map(fList => <Friends friends={fList}></Friends> )
+      }
     </header>
   );
 }
@@ -59,6 +83,27 @@ function Person(props) {
     <div style={personStyle}>
       <h3>Name: {props.name}</h3>
       <h4>City: {props.address}</h4>
+    </div>
+  )
+}
+
+function Friends(props) {
+  const friendsStyle = {
+    border: '1px solid gray',
+    borderRadius: '5px',
+    margin: '25px',
+    backgroundColor: 'red',
+    height: '200px',
+    width: '200px',
+    float: 'left',
+    textAlign: 'center'
+  }
+  const { name, roll } = props.friends
+  console.log(name,roll);
+  return (
+    <div style={friendsStyle}>
+      <h4>{name}</h4>
+      <h4>{roll}</h4>
     </div>
   )
 }
