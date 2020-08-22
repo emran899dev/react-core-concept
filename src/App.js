@@ -17,7 +17,7 @@ function App() {
 
 function Person() {
   return (
-    <div>
+    <div style={{border:'2px solid red',margin:'5px'}}>
       <h1>Name: Mushfiqur Rahim</h1>
       <h3>I am a student</h3>
     </div>
