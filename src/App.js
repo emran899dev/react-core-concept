@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -7,23 +6,24 @@ function App() {
     <header className="App-header">
       <div className="App">
         <p>I am a React Person</p>
-        <Person></Person>
-        <Person></Person>
-        <Person></Person>
+        <Person name='Ruble Nayok' nayika='Moushumi'></Person>
+        <Person name='BappaRaz Nayok' nayika='cheka'></Person>
+        <Person name='Razjak' nayika='Bobitha'></Person>
       </div>
     </header>
   );
 }
 
-function Person() {
- const personStyle = {
+function Person(props) {
+  const personStyle = {
     border: '2px solid yellow',
     margin: '5px'
   }
+  console.log(props);
   return (
     <div style={personStyle}>
-      <h1>Name: Mushfiqur Rahim</h1>
-      <h3>I am a student</h3>
+      <h1>Nayok: {props.name}</h1>
+      <h3>Hero of {props.nayika}</h3>
     </div>
   )
 
