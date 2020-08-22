@@ -110,10 +110,15 @@ function Friends(props) {
 }
 
 function Counter() {
-  const [count, setCount] = useState(20)
+  const [count, setCount] = useState(0)
+  const handelIncrease = () => setCount(count + 1) 
+  const handelDecrease = () => setCount(count - 1) 
   return (
     <div>
       <h2>Count: {count} </h2>
+
+      <button onClick={handelIncrease}>Increase</button>
+      <button onClick={handelDecrease}>Decrease</button>
     </div>
   )
 }
