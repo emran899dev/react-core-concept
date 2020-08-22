@@ -2,14 +2,16 @@ import React from 'react';
 import './App.css';
 
 function App() {
+  const personName = ['Rahim', 'Karim', 'Jabbar']
+  const cityName = ['Dhaka', 'Khulna']
+  const personAddress = {
+    city1: cityName[0],
+    city2: cityName[1]
+  }
   return (
     <header className="App-header">
-      <div className="App">
-        <p>I am a React Person</p>
-        <Person name='Ruble Nayok' nayika='Moushumi'></Person>
-        <Person name='BappaRaz Nayok' nayika='cheka'></Person>
-        <Person name='Razjak' nayika='Bobitha'></Person>
-      </div>
+      <Person name={personName[0]} address={personAddress.city1}></Person>
+      <Person name={personName[1]} address={personAddress.city2}></Person>
     </header>
   );
 }
@@ -17,16 +19,15 @@ function App() {
 function Person(props) {
   const personStyle = {
     border: '2px solid yellow',
-    margin: '5px'
+    margin: '5px',
+    width: '400px'
   }
-  console.log(props);
   return (
     <div style={personStyle}>
-      <h1>Nayok: {props.name}</h1>
-      <h3>Hero of {props.nayika}</h3>
+      <h1>Name: {props.name}</h1>
+      <h3>City: {props.address}</h3>
     </div>
   )
-
 }
 
 export default App;
