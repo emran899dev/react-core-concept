@@ -4,16 +4,17 @@ import './App.css';
 
 function App() {
   return (
+    <header className="App-header">
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-  
+        <p>I am a React Person</p>
+        <Person></Person>
+      </div>
       </header>
-    </div>
   );
+}
+
+function Person() {
+  return <h1>Name: Mushfiqur Rahim</h1>
 }
 
 export default App;
