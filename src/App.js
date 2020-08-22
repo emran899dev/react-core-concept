@@ -19,6 +19,7 @@ function App() {
   return (
     <header className="App-header">
       <Product product={products[0]}></Product>
+      <Product product={products[1]}></Product>
       <Person name={personName[0]} address={personAddress.city1}></Person>
       <Person name={personName[1]} address={personAddress.city2}></Person>
     </header>
@@ -29,17 +30,20 @@ function Product(props) {
   const productStyle = {
     border: '1px solid gray',
     borderRadius: '5px',
+    margin: '25px',
     backgroundColor: 'lightgray',
     height: '200px',
     width: '200px',
     float: 'left',
     textAlign: 'center'
   }
-  console.log(props);
+  const { name, price } = props.product
+  console.log(name, price);
+  
   return (
     <div style={productStyle}>
-      <h3>{props.product.name}</h3>
-      <h5>{props.product.price}</h5>
+      <h3>{name}</h3>
+      <h5>{price}</h5>
       <button>Click here</button>
     </div>
   )
