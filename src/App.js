@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
   const personName = ['Rahim', 'Karim', 'Jobbar']
 
   const personAddress = [
-    {city: 'Dhaka'},
-    {city: 'khulna'}
+    { city: 'Dhaka' },
+    { city: 'khulna' }
   ]
 
   const products = [
@@ -19,20 +19,21 @@ function App() {
   ]
 
   const friendList = [
-    {name: 'Tushar',roll: 328435},
-    {name: 'Emran Nazir',roll: 328435},
-    {name: 'Abdullha ',roll: 328435},
-    {name: 'Sohidul islam',roll: 328435},
-    {name: 'shanto shek',roll: 328435}
+    { name: 'Tushar', roll: 328435 },
+    { name: 'Emran Nazir', roll: 328435 },
+    { name: 'Abdullha ', roll: 328435 },
+    { name: 'Sohidul islam', roll: 328435 },
+    { name: 'shanto shek', roll: 328435 }
   ]
 
   return (
     <header className="App-header">
       <h1>I am a React Person</h1>
+      <Counter></Counter>
       <ul>
         {
           personName.map(pName => <li>{pName}</li>)
-          
+
         }
         {
           products.map(product => <li>{product.name}</li>)
@@ -44,7 +45,7 @@ function App() {
       <Person name={personName[0]} address={personAddress[0].city}></Person>
       <Person name={personName[1]} address={personAddress[1].city}></Person>
       {
-        friendList.map(fList => <Friends friends={fList}></Friends> )
+        friendList.map(fList => <Friends friends={fList}></Friends>)
       }
     </header>
   );
@@ -63,7 +64,7 @@ function Product(props) {
   }
   const { name, price } = props.product
   console.log(name, price);
-  
+
   return (
     <div style={productStyle}>
       <h3>{name}</h3>
@@ -99,11 +100,20 @@ function Friends(props) {
     textAlign: 'center'
   }
   const { name, roll } = props.friends
-  console.log(name,roll);
+  console.log(name, roll);
   return (
     <div style={friendsStyle}>
       <h4>{name}</h4>
       <h4>{roll}</h4>
+    </div>
+  )
+}
+
+function Counter() {
+  const [count, setCount] = useState(20)
+  return (
+    <div>
+      <h2>Count: {count} </h2>
     </div>
   )
 }
