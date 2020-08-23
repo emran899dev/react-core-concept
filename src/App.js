@@ -134,23 +134,23 @@ function Users() {
   return (
     <div>
       <h2>Dynamic Users: {users.length}</h2>
-     
-        <ol>
+
+      <ol>
         {
-           users.map(user => <li>{user.name}</li>)
+          users.map(user => <li>{user.name}</li>)
         }
       </ol>
 
       <h2>Users City</h2>
       <ol>
-      {
-        users.map(userAddress => <li>{userAddress.address.city}</li>)
+        {
+          users.map(userAddress => <li>{userAddress.address.city}</li>)
         }
       </ol>
       {
         console.log(users)
       }
-        
+
     </div>
 
 
